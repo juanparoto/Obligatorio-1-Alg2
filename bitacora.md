@@ -12,6 +12,8 @@
 - Hoy terminé la implementación del AVL, ahora compila. Cree las clases moneda y pintura,
 - con los atributoss que considere necesarios, ademas implemente las operaciones **"=="**, **">"** 
 - y **"<"** en cada una.
+- Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
+- buscar en el AVL.
 
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...

@@ -1,17 +1,17 @@
 # Bitácora — Obligatorio 1
 
-**Integrantes:** Nombre Apellido (Nº estudiante), Nombre Apellido (Nº estudiante)
+**Integrantes:** Juan Pablo Burone (Nº 347086), Nicolas Varela (_ _ _ _ 6 7)
 
-> **Instrucciones** (borrar esta sección antes de entregar): agregar una entrada por
-> cada día trabajado, indicando la fecha y quién trabajó (un integrante o "En conjunto").
-> Registrar el proceso real: ideas exploradas, decisiones y su justificación, partes de
-> implementaciones, bugs encontrados y cómo se corrigieron, resultados de pruebas y dudas
-> abiertas. Si se usó IA ese día, indicar herramienta, consulta y qué se hizo con la
-> respuesta. Una bitácora escrita íntegramente el día de la entrega implica pérdida de puntos.
 
-## AAAA-MM-DD — Nombre
-- Ejemplo: Leí la letra del ejercicio 1. Primera idea: ... pero la restricción de
-  complejidad pide ..., así que ...
+
+## 2026-09-01 — Juan Pablo Burone
+- Inicio: Creamos el repo, descargue el proyecto, hice clone git. Arrancamos la
+- implementacion del Avl siguiendo la clase de práctico, no compila.
+
+## 2026-09-02 — Juan Pablo Burone
+- Hoy terminé la implementación del AVL, ahora compila. Cree las clases moneda y pintura,
+- con los atributoss que considere necesarios, ademas implemente las operaciones **"=="**, **">"** 
+- y **"<"** en cada una.
 
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...

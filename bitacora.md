@@ -15,6 +15,10 @@
 - Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
 - buscar en el AVL.
 
+## 2026-09-03 - Nicolás Varela
+-Implemente todo lo de buscar y rango del ejercicio 1.
+-Bug: Hay un bug en las funciones de rango pero no es por logica
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

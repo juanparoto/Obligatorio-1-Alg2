@@ -118,25 +118,14 @@ class AVL {
             return buscarRec(r->der, key);
         }
 
-<<<<<<< HEAD
         void rangoRec(NodoAVL<T, K>* r, K desde, K hasta){
             if (r == NULL){
-=======
-        void rangoRec(NodoAVL<T, K>* r, K desde, K hasta) {
-            if (r == NULL) {
->>>>>>> refs/remotes/origin/main
                 return;
             }
 
             rangoRec(r->der, desde, hasta);
-<<<<<<< HEAD
-            if (r->dato >= desde && r->dato <= hasta){
-                cout << r->dato << endl;
-=======
-
-            if (r->key >= desde && r->key <= hasta) {
+            if (r->key >= desde && r->key <= hasta){
                 cout << r->key << endl;
->>>>>>> refs/remotes/origin/main
             }
 
             rangoRec(r->izq, desde, hasta);

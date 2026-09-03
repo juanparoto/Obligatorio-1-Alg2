@@ -37,6 +37,14 @@ string buscarPin(AVL<pintura,string>*& arbol, string tit){
     }
 }
 
+void rangoMon(AVL<moneda,long>*& arbol, long desde, long hasta){
+    arbol->rango(desde, hasta);
+}
+
+void rangoPin(AVL<pintura,string>*& arbol, string desde, string hasta){
+    arbol->rango(desde, hasta);
+}
+
 //MAIN
 int main()
 {
@@ -79,11 +87,17 @@ int main()
         }
 
         if (operacion == "RANGO" && tipo == "M"){
-        
+            long desde;
+            long hasta
+            cin >> desde >> hasta;
+            rangoMon(aMonedas, desde, hasta);
         }
 
         if (operacion == "RANGO" && tipo == "P"){
-    
+            string desde;
+            string hasta
+            cin >> desde >> hasta;
+            rangoPin(aPinturas, desde, hasta);
         }
     }
     return 0;

@@ -105,7 +105,7 @@ class AVL {
             return r;
         }
 
-        bool buscarRec(NodoAVL<T, K>* r, const K& key) {
+        bool buscarRec(NodoAVL<T, K>* r, K key) {
             if (!r) {
                 return false;
             }
@@ -118,6 +118,17 @@ class AVL {
             return buscarRec(r->der, key);
         }
 
+        void rangoRec(NodoAVL<T, K>* r, K desde, K hasta){
+            if (raiz == NULL){
+                return;
+            }
+            rangoRec(r->der, desde, hasta);
+            if (raiz->dato >= desde && raiz->dato <= hasta){
+                cout << raiz->dato << endl;
+            }
+            rangoRec(r->izq, desde, hasta);
+        }
+
     public:
 
         AVL(){
@@ -127,7 +138,11 @@ class AVL {
             raiz = insertarRec(raiz, elem, elem.getKey());
         }
 
-        bool buscar(T elem){
-            return buscarRec(raiz, elem.getKey());
+        bool buscar(K key){
+            return buscarRec(raiz, key);
+        }
+
+        void rango(K desde, K hasta){
+            rangoRec(raiz, K desde, K hasta);
         }
 };

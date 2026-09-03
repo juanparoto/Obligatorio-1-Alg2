@@ -119,12 +119,12 @@ class AVL {
         }
 
         void rangoRec(NodoAVL<T, K>* r, K desde, K hasta){
-            if (raiz == NULL){
+            if (r == NULL){
                 return;
             }
             rangoRec(r->der, desde, hasta);
-            if (raiz->dato >= desde && raiz->dato <= hasta){
-                cout << raiz->dato << endl;
+            if (r->dato >= desde && r->dato <= hasta){
+                cout << r->dato << endl;
             }
             rangoRec(r->izq, desde, hasta);
         }
@@ -143,6 +143,6 @@ class AVL {
         }
 
         void rango(K desde, K hasta){
-            rangoRec(raiz, K desde, K hasta);
+            rangoRec(raiz, desde, hasta);
         }
 };

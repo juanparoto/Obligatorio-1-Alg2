@@ -104,14 +104,45 @@ class AVL {
             return r;
         }
 
+        bool buscarRec(NodoAVL<T>* r, T elem){
+            if (r == NULL){
+                false;
+            }
+            if (r->dato == elem){
+                return true;
+            }
+            if (r->dato > elem){
+                return buscarRec(r->izq, elem);
+            }
+            return buscarRec(r->der, elem);
+        }
+
+        void rangoRec(NodoAVL<T>* r, T desde, T hasta){
+            if (raiz == NULL){
+                return;
+            }
+            rangoRec(r->der, desde, hasta);
+            if (r->dato >= desde && r->dato <= hasta){
+                cout << r->dato << endl;
+            }
+            rangoRec(r->izq, desde, hasta);
+        }
+
     public:
 
         AVL(){
             raiz = NULL;
         }
-
         void insertar(T elem){
             raiz = insertarRec(raiz, elem);
+        }
+
+        bool buscar(T elem){
+            return buscarRec(raiz, elem);
+        }
+
+        void rango(T desde, T hasta){
+            rangoRec(raiz, desde, hasta);
         }
         
 };

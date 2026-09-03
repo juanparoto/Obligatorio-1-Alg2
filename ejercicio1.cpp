@@ -9,24 +9,6 @@
 using namespace std;
 
 //FUNCIONES AUXILIARES
-string buscarMon(AVL<moneda>*& arbol, long numero){
-    if(arbol.buscar(numero)){
-        return "si";
-    }
-    else{
-        return "no";
-    }
-}
-
-string buscarPin(AVL<pintura>*& arbol, string tit){
-    if(arbol.buscar(tit)){
-        return "si";
-    }
-    else{
-        return "no";
-    }
-}
-
 void agregarPintura(AVL<pintura>*& arbol, string titulo){
     pintura p1 = pintura(titulo);
     arbol->insertar(p1);
@@ -35,6 +17,32 @@ void agregarPintura(AVL<pintura>*& arbol, string titulo){
 void agregarMoneda(AVL<moneda>*& arbol, long numero){
     moneda m1 = moneda(numero);
     arbol->insertar(m1);
+}
+
+string buscarMon(AVL<moneda>*& arbol, long numero){
+    if(arbol->buscar(numero)){
+        return "si";
+    }
+    else{
+        return "no";
+    }
+}
+
+string buscarPin(AVL<pintura>*& arbol, string tit){
+    if(arbol->buscar(tit)){
+        return "si";
+    }
+    else{
+        return "no";
+    }
+}
+
+void rangoMon(AVL<moneda>*& arbol, long desde, long hasta){
+    arbol->rango(desde, hasta);
+}
+
+void rangoPin(AVL<pintura>*& arbol, string desde, string hasta){
+    arbol->rango(desde, hasta);
 }
 
 //MAIN
@@ -76,6 +84,20 @@ int main()
             cin >> tit;
             string respuesta = buscarPin(aPinturas, tit);
             cout << respuesta << endl;
+        }
+
+        if (operacion == "RANGO" && tipo == "M"){
+            long desde;
+            long hasta;
+            cin >> desde >> hasta;
+            rangoMon(aMonedas, desde, hasta);
+        }
+
+        if (operacion == "RANGO" && tipo == "P"){
+            string desde;
+            string hasta;
+            cin >> desde >> hasta;
+            rangoPin(aPinturas, desde, hasta);
         }
     }
     return 0;

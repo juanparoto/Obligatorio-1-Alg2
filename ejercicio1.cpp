@@ -88,14 +88,14 @@ int main()
 
         if (operacion == "RANGO" && tipo == "M"){
             long desde;
-            long hasta
+            long hasta;
             cin >> desde >> hasta;
             rangoMon(aMonedas, desde, hasta);
         }
 
         if (operacion == "RANGO" && tipo == "P"){
             string desde;
-            string hasta
+            string hasta;
             cin >> desde >> hasta;
             rangoPin(aPinturas, desde, hasta);
         }

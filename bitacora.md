@@ -19,6 +19,10 @@
 -Implemente todo lo de buscar y rango del ejercicio 1.
 -Bug: Hay un bug en las funciones de rango pero no es por logica
 
+## 2026-09-03 - Juan Pablo Burone
+- Borre la funcion rango que tenia bugs, implemente en TAD Avl, que ahora el template
+- recibe dos cosas, el objeto y el tipo de la llave, mostrado como K.
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

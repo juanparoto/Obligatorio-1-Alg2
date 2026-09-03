@@ -22,6 +22,8 @@
 ## 2026-09-03 - Juan Pablo Burone
 - Borre la funcion rango que tenia bugs, implemente en TAD Avl, que ahora el template
 - recibe dos cosas, el objeto y el tipo de la llave, mostrado como K.
+- Tuvimos tremendo error con git, se sobrescribieron los archivos, casi perdemos todo, usamos LA IA CODEX, COMO AGENTE
+- para que ejecturara los comandos de git y volviera el repo a su estado original.
 
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...

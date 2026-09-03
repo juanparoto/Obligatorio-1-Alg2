@@ -4,42 +4,43 @@
 #include "../funciones/enteros.cpp"
 using namespace std;
 
-template<typename T>
+template<typename T,typename K>
 struct NodoAVL{
     T dato;
+    K key;
     int h;
-    NodoAVL<T> * izq;
-    NodoAVL<T> * der;
+    NodoAVL<T,K> * izq;
+    NodoAVL<T,K> * der;
 
-    NodoAVL(T elem) : dato(elem) {
+    NodoAVL(T elem, K llave) : dato(elem) , key(llave){
     h = 1;
     izq = der = NULL;
-}
+    }
 };
 
-template<typename T>
+template<typename T, typename K>
 class AVL {
     private:
-        NodoAVL<T>* raiz;
+        NodoAVL<T,K>* raiz;
 
-        int getAltura(NodoAVL<T>* nodo){
+        int getAltura(NodoAVL<T,K>* nodo){
             if(!nodo){
                 return 0;
             }
             return nodo->h;
         }
 
-        int getBalance(NodoAVL<T>* nodo){
+        int getBalance(NodoAVL<T,K>* nodo){
             if(!nodo){
                 return 0;
             }
             return getAltura(nodo->der) - getAltura(nodo->izq);
         }
 
-        NodoAVL<T>* rotacionDerecha(NodoAVL<T>* nodo){
-            NodoAVL<T>* A = nodo->izq;
-            NodoAVL<T>* B = nodo;
-            NodoAVL<T>* T2 = A->der; 
+        NodoAVL<T,K>* rotacionDerecha(NodoAVL<T,K>* nodo){
+            NodoAVL<T,K>* A = nodo->izq;
+            NodoAVL<T,K>* B = nodo;
+            NodoAVL<T,K>* T2 = A->der; 
 
             B->izq = T2;
             A->der = B;
@@ -50,10 +51,10 @@ class AVL {
             return A;
         }
 
-        NodoAVL<T>* rotacionIzquierda(NodoAVL<T>* nodo) {
-            NodoAVL<T>* A = nodo->der;
-            NodoAVL<T>* B = nodo;
-            NodoAVL<T>* T2 = A->izq;
+        NodoAVL<T,K>* rotacionIzquierda(NodoAVL<T,K>* nodo) {
+            NodoAVL<T,K>* A = nodo->der;
+            NodoAVL<T,K>* B = nodo;
+            NodoAVL<T,K>* T2 = A->izq;
 
             B->der = T2;
             A->izq = B;
@@ -64,16 +65,16 @@ class AVL {
             return A;
         }
 
-        NodoAVL<T>* insertarRec(NodoAVL<T>* r, T elem){
+        NodoAVL<T,K>* insertarRec(NodoAVL<T,K>* r, T elem, K key){
 
             if(!r){
-                return new NodoAVL<T>(elem);
+                return new NodoAVL<T,K>(elem,key);
             }
-            else if(elem < r->dato){
-                r->izq = insertarRec(r->izq, elem);
+            else if(key < r->key){
+                r->izq = insertarRec(r->izq, elem, key);
             }
-            else if(elem > r->dato){
-                r->der = insertarRec(r->der, elem);
+            else if(key > r->key){
+                r->der = insertarRec(r->der, elem, key);
             }
             else{
                 return r;
@@ -83,20 +84,20 @@ class AVL {
 
             int balance = getBalance(r);
 
-            if(balance > 1 && elem > r->der->dato){
+            if(balance > 1 && key > r->der->key){
                 return rotacionIzquierda(r);
             }
 
-            if(balance > 1 && elem < r->der->dato){
+            if(balance > 1 && key < r->der->key){
                 r->der = rotacionDerecha(r->der);
                 return rotacionIzquierda(r);
             }
 
-            if(balance < -1 && elem < r->izq->dato){
+            if(balance < -1 && key < r->izq->key){
                 return rotacionDerecha(r);
             }
 
-            if(balance < -1 && elem > r->izq->dato){
+            if(balance < -1 && key > r->izq->key){
                 r->izq = rotacionIzquierda(r->izq);
                 return rotacionDerecha(r);
             }
@@ -104,28 +105,17 @@ class AVL {
             return r;
         }
 
-        bool buscarRec(NodoAVL<T>* r, T elem){
-            if (r == NULL){
-                false;
+        bool buscarRec(NodoAVL<T, K>* r, const K& key) {
+            if (!r) {
+                return false;
             }
-            if (r->dato == elem){
+            if (key == r->key) {
                 return true;
             }
-            if (r->dato > elem){
-                return buscarRec(r->izq, elem);
+            if (key < r->key) {
+                return buscarRec(r->izq, key);
             }
-            return buscarRec(r->der, elem);
-        }
-
-        void rangoRec(NodoAVL<T>* r, T desde, T hasta){
-            if (raiz == NULL){
-                return;
-            }
-            rangoRec(r->der, desde, hasta);
-            if (r->dato >= desde && r->dato <= hasta){
-                cout << r->dato << endl;
-            }
-            rangoRec(r->izq, desde, hasta);
+            return buscarRec(r->der, key);
         }
 
     public:
@@ -134,15 +124,10 @@ class AVL {
             raiz = NULL;
         }
         void insertar(T elem){
-            raiz = insertarRec(raiz, elem);
+            raiz = insertarRec(raiz, elem, elem.getKey());
         }
 
         bool buscar(T elem){
-            return buscarRec(raiz, elem);
+            return buscarRec(raiz, elem.getKey());
         }
-
-        void rango(T desde, T hasta){
-            rangoRec(raiz, desde, hasta);
-        }
-        
 };

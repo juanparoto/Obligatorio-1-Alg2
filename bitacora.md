@@ -15,7 +15,6 @@
 - Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
 - buscar en el AVL.
 
-
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

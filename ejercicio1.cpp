@@ -9,17 +9,17 @@
 using namespace std;
 
 //FUNCIONES AUXILIARES
-void agregarPintura(AVL<pintura>*& arbol, string titulo){
+void agregarPintura(AVL<pintura,string>*& arbol, string titulo){
     pintura p1 = pintura(titulo);
     arbol->insertar(p1);
 }
 
-void agregarMoneda(AVL<moneda>*& arbol, long numero){
+void agregarMoneda(AVL<moneda,long>*& arbol, long numero){
     moneda m1 = moneda(numero);
     arbol->insertar(m1);
 }
 
-string buscarMon(AVL<moneda>*& arbol, long numero){
+string buscarMon(AVL<moneda,long>*& arbol, long numero){
     if(arbol->buscar(numero)){
         return "si";
     }
@@ -28,7 +28,7 @@ string buscarMon(AVL<moneda>*& arbol, long numero){
     }
 }
 
-string buscarPin(AVL<pintura>*& arbol, string tit){
+string buscarPin(AVL<pintura,string>*& arbol, string tit){
     if(arbol->buscar(tit)){
         return "si";
     }
@@ -37,19 +37,11 @@ string buscarPin(AVL<pintura>*& arbol, string tit){
     }
 }
 
-void rangoMon(AVL<moneda>*& arbol, long desde, long hasta){
-    arbol->rango(desde, hasta);
-}
-
-void rangoPin(AVL<pintura>*& arbol, string desde, string hasta){
-    arbol->rango(desde, hasta);
-}
-
 //MAIN
 int main()
 {
-    AVL<moneda>* aMonedas = new AVL<moneda>();
-    AVL<pintura>* aPinturas = new AVL<pintura>();
+    AVL<moneda,long>* aMonedas = new AVL<moneda,long>();
+    AVL<pintura,string>* aPinturas = new AVL<pintura,string>();
 
     int cantOp;
     cin >> cantOp;
@@ -87,17 +79,11 @@ int main()
         }
 
         if (operacion == "RANGO" && tipo == "M"){
-            long desde;
-            long hasta;
-            cin >> desde >> hasta;
-            rangoMon(aMonedas, desde, hasta);
+        
         }
 
         if (operacion == "RANGO" && tipo == "P"){
-            string desde;
-            string hasta;
-            cin >> desde >> hasta;
-            rangoPin(aPinturas, desde, hasta);
+    
         }
     }
     return 0;

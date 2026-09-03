@@ -14,6 +14,8 @@
 - y **"<"** en cada una.
 - Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
 - buscar en el AVL.
+- hola
+
 
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...

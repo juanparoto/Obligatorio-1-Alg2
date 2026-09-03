@@ -25,6 +25,9 @@
 - Tuvimos tremendo error con git, se sobrescribieron los archivos, casi perdemos todo, usamos LA IA CODEX, COMO AGENTE
 - para que ejecturara los comandos de git y volviera el repo a su estado original.
 
+## 2026-09-03 - Nicolás Varela
+-Volvi a programar la funcion rango, con los cambios que implemento Juan Pablo
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

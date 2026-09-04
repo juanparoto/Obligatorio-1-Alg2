@@ -28,6 +28,23 @@
 ## 2026-09-03 - Nicolás Varela
 -Volvi a programar la funcion rango, con los cambios que implemento Juan Pablo
 
+## 2026-09-03 - Juan Pablo Burone
+- Agrege todo tipo de defensa para casos borde, importe el repo de pruebas, le pedi a la IA que me hiciera un BLOQUE para poder correr
+- las pruebas con un for, adjunto bloque:
+
+for entrada in pruebas-oficiales/tests/ejercicio1/*.in.txt; do
+    base="${entrada%.in.txt}"
+    ./main < "$entrada" > miSalida.txt
+
+    if diff -q "$base.out.txt" miSalida.txt > /dev/null; then
+        echo "OK: $(basename "$base")"
+    else
+        echo "FALLA: $(basename "$base")"
+    fi
+done
+
+- Todas las pruebas dieron OK, por hoy damos por terminado el ejercicio1.cpp
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

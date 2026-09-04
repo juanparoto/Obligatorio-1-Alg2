@@ -28,6 +28,33 @@ string buscarMon(AVL<moneda,long>*& arbol, long numero){
     }
 }
 
+bool chequeoSeguridadC(long num){
+    if(num>1000000000000 || num < 1){
+        cout << "Numero de catalogo invalido" << endl;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool chequeoSeguridadP(string tit){
+
+    if(tit.length() < 1 || tit.length() > 20){
+        cout << "Titulo invalido" << endl;
+        return true;
+    }
+
+    for(char caracter : tit){
+        if(caracter == ' ' || (caracter >= 'A' && caracter <= 'Z')){
+            cout << "El titulo no puede tener espacios y debe estar en minusculas" << endl;
+            return true;
+        }
+    }
+
+    return false;
+}
+
 string buscarPin(AVL<pintura,string>*& arbol, string tit){
     if(arbol->buscar(tit)){
         return "si";
@@ -51,10 +78,18 @@ int main()
     AVL<moneda,long>* aMonedas = new AVL<moneda,long>();
     AVL<pintura,string>* aPinturas = new AVL<pintura,string>();
 
+    
     int cantOp;
     cin >> cantOp;
 
+    if(cantOp > 200000 || cantOp < 1){
+        cout << "La cantidad de operaciones debe estar entre 0 y 200000" << endl;
+        return 1;
+    }
+
+
     for(int i = 0; i < cantOp; i++){
+
         string operacion;
         string tipo;
 
@@ -63,18 +98,33 @@ int main()
         if(operacion == "ALTA" && tipo == "M"){
             long numCat;
             cin >> numCat;
+
+            if(chequeoSeguridadC(numCat)){
+                return 1;
+            }
+
             agregarMoneda(aMonedas, numCat);             
         }
 
         if(operacion == "ALTA" && tipo == "P"){
             string titulo;
             cin >> titulo;
+
+            if(chequeoSeguridadP(titulo)){
+                return 1;
+            }
+
             agregarPintura(aPinturas, titulo);             
         }
 
         if(operacion == "BUSCAR" && tipo == "M"){
             long numCat;
             cin >> numCat;
+
+            if(chequeoSeguridadC(numCat)){
+                return 1;
+            }
+
             string respuesta = buscarMon(aMonedas, numCat);
             cout << respuesta << endl;
         }
@@ -82,6 +132,11 @@ int main()
         if(operacion == "BUSCAR" && tipo == "P"){
             string tit;
             cin >> tit;
+
+            if(chequeoSeguridadP(tit)){
+                return 1;
+            }
+
             string respuesta = buscarPin(aPinturas, tit);
             cout << respuesta << endl;
         }
@@ -90,6 +145,12 @@ int main()
             long desde;
             long hasta;
             cin >> desde >> hasta;
+            if(chequeoSeguridadC(desde)){
+                return 1;
+            }
+            if(chequeoSeguridadC(hasta)){
+                return 1;
+            }
             rangoMon(aMonedas, desde, hasta);
         }
 
@@ -97,6 +158,14 @@ int main()
             string desde;
             string hasta;
             cin >> desde >> hasta;
+
+            if(chequeoSeguridadP(desde)){
+                return 1;
+            }
+            if(chequeoSeguridadP(hasta)){
+                return 1;
+            }
+
             rangoPin(aPinturas, desde, hasta);
         }
     }

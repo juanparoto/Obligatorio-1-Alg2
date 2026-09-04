@@ -123,12 +123,17 @@ class AVL {
                 return;
             }
 
-            rangoRec(r->der, desde, hasta);
+            if (r->key > desde){
+                rangoRec(r->izq, desde, hasta);
+            }
+
             if (r->key >= desde && r->key <= hasta){
                 cout << r->key << endl;
             }
 
-            rangoRec(r->izq, desde, hasta);
+            if (r->key < hasta){
+                rangoRec(r->der, desde, hasta);
+            }
         }
 
     public:

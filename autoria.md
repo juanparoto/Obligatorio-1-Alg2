@@ -8,7 +8,8 @@
 > con comentarios en el código fuente. La omisión de fuentes puede considerarse plagio.
 
 ## Ejercicio 1
-- Implementación íntegramente propia, sin fuentes externas.
+- La implementación de AVL fue la desarollada en la clase de práctico. En lo demas no hubo utilizacion de inteligencia artifical
+- para crear codigo. Solo se utilizo Codex el 3/9/2026 para arreglar un problema con GIT.
 
 ## Ejercicio 2
 - Implementación íntegramente propia, sin fuentes externas.

@@ -45,6 +45,10 @@ done
 
 - Todas las pruebas dieron OK, por hoy damos por terminado el ejercicio1.cpp
 
+## 2026-06-05 - Nicolás Varela
+- Arranque el ejercicio 2
+- Hice todo el tad del hash abierto
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

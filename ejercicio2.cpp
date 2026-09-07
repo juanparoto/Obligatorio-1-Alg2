@@ -48,8 +48,8 @@ int main() {
             }
         } else {
             (*cantidad)++;
-            if (max < cantidad){
-                max = cantidad;
+            if (max < *cantidad){
+                max = *cantidad;
             }
         }
 

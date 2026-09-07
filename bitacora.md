@@ -49,6 +49,9 @@ done
 - Arranque el ejercicio 2
 - Hice todo el tad del hash abierto
 
+## 2026-09-06 - Juan Pablo Burone
+- Arranque con ejercicio 2. Hice clase clave, y un poquito de main.
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

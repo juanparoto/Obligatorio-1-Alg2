@@ -55,6 +55,18 @@ done
 ## 2026-09-07 - Nicolás Varela
 - Termine el main del ejercicio 2.
 
+## 2026-09-08 - Juan Pablo Burone
+- Agregue programacion defensiva a lo que nico hizo ayer para que pasara todos los Test, teniamos un problema que
+era que la funcion de Hash nos dejaba todo en clsuters, entonces recurrimos a fuscar en un foro una funcion de hash abierto que
+reduciera las colisiones:
+
+Robert Sedgewick y Kevin Wayne. Algorithms, 4.ª edición, sección 3.4: Hash Tables.
+Funcion elegida: hash = (R * hash + caracter) % M;
+Como multiplicador elejimos 31. 
+Para elejir el M, como la letra dice que el maximo a registrar son 100.000 palabras, que dividido por 0,6 daria 166.667 buckets, le pedimos a Codex que nos dijiera el proximo primo, para evitar colisiones hasta en el peor caso.
+
+
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

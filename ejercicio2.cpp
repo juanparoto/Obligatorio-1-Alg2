@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
+#include <cmath>
 #include "tads/HashAbiertoImp.cpp"
 
 #include "clases/clave.cpp"
@@ -9,12 +10,15 @@
 using namespace std;
 
 
-int funcionHash(clave c1){
-    int retorno = 0;
+
+int funcionHash(clave c1) {
+    long retorno = 0;
     string palabra = c1.getPalabra();
-    for(char letra : palabra){
-        retorno += letra;
+
+    for (char letra : palabra) {
+        retorno = (retorno * 31 + letra) % 166669;
     }
+
     return retorno;
 }
 
@@ -30,7 +34,9 @@ int main() {
     int bucketsUsados = 0;
     int max = 0;
 
-    HashAbierto<clave, int> cajonesAgrupados(cantPalabras, funcionHash, sonIguales);
+    int cantBuckets = (cantPalabras / 0.6) + 1; //redondea para arriba
+
+    HashAbierto<clave, int> cajonesAgrupados(cantBuckets, funcionHash, sonIguales);
 
     for(int i = 0; i<cantPalabras; i++){
 
@@ -58,19 +64,21 @@ int main() {
     int cantConsultas;
     cin >> cantConsultas;
 
-    for(int i = 0; i<cantPalabras; i++){
-
+    for (int i = 0; i < cantConsultas; i++) {
         string palabra;
         cin >> palabra;
 
-        clave c1 = clave(palabra);
+        clave c1(palabra);
         int* cantidad = cajonesAgrupados.recuperar(c1);
 
-        cout << cantidad << endl;
+        if (cantidad == NULL) {
+            cout << 0 << '\n';
+        } else {
+            cout << *cantidad << '\n';
+        }
     }
 
-    cout << bucketsUsados + " " + max << endl;
-
+    cout << bucketsUsados << " " << max << '\n';
 
     return 0;
 }

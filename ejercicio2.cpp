@@ -9,12 +9,12 @@ using namespace std;
 
 
 
-int funcionHash(clave c1) {
-    long retorno = 0;
+unsigned int funcionHash(clave c1) {
+    unsigned int retorno = 0;
     string palabra = c1.getPalabra();
 
     for (char letra : palabra) {
-        retorno = (retorno * 31 + letra) % 166669;
+        retorno = retorno * 31 + letra;
     }
 
     return retorno;

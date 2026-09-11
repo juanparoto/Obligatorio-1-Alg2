@@ -22,20 +22,16 @@ class HashAbierto {
     Nodo** tabla;
 
     int cantBuckets;
-    int (*funcionDeHash)(K);
+    unsigned int (*funcionDeHash)(K);
     bool (*sonIguales)(K, K);
 
     int obtenerIndice(K clave) {
-        int indice = fucncionDeHash(clave) % cantBuckets;
-        if (indice < 0) {
-            indice += cantBuckets;
-        }
-        return indice;
+        return funcionDeHash(clave) % cantBuckets;
     }
 
     public:
 
-    HashAbierto(int nuevaCantBuckets, int (*funcionDeHashParam)(K), bool (*sonIgualesParam)(K, K)) {
+    HashAbierto(int nuevaCantBuckets, unsigned int (*funcionDeHashParam)(K), bool (*sonIgualesParam)(K, K)) {
         assert(nuevaCantBuckets > 0);
         tabla = new Nodo*[nuevaCantBuckets]();
         cantBuckets = nuevaCantBuckets;

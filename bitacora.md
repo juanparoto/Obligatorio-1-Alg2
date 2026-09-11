@@ -108,6 +108,12 @@ g++ -std=c++11 -O2 ejercicio3.cpp -o ejercicio3 && (
   echo "Resultado: $ok/$total pruebas correctas"
 )
 ```
+
+## 2026-09-11 - Nicolás Varela
+- Hice el ejercicio 3 generico, agregue la funcion comparar como atributo y todo lo que conlleva, despues cree la funcion compararGastos en el main
+- Ademas agregue las funciones padre e hijos y cambie algunas variables
+
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

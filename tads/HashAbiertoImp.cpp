@@ -26,7 +26,7 @@ class HashAbierto {
     bool (*sonIguales)(K, K);
 
     int obtenerIndice(K clave) {
-        int indice = funcionDeHash(clave) % cantBuckets;
+        int indice = fucncionDeHash(clave) % cantBuckets;
         if (indice < 0) {
             indice += cantBuckets;
         }

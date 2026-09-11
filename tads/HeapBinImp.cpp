@@ -8,25 +8,48 @@ using namespace std;
 template <typename T>
 class heapBinario{
     T* heap;
-    int cantOcupados;
+    int ultimoOcupado;
     int capacidad;
+    bool (*comparar)(T, T);
 
     private:
 
-        void floto(int posicion){
-            while(posicion > 1 && heap[posicion/2] > heap[posicion]){
-                swap(posicion, posicion/2);
-                posicion = posicion/2;
+        int padre(int posicion){
+            return posicion / 2;
+        }
+
+        int hijoIzq(int posicion){
+            return posicion * 2;
+        }
+
+        int hijoDer(int posicion){
+            return (posicion * 2) + 1;
+        }
+
+        void flotar(int posicion){
+            if (posicion == 1) {
+                return;
+            }
+            int posicionPadre = padre(posicion);
+            if (comparar(heap[posicion], heap[posicionPadre])){
+                swap(posicion, posicionPadre);
+                flotar(posicionPadre);
             }
         }
 
-        void hundo(int posicion){
-            while(2*posicion <= cantOcupados){
-                int j = 2*posicion;
-                if (j < cantOcupados && heap[j] > heap[j + 1]) j++;
-                if (heap[posicion] <= heap[j]) break;
-                swap(posicion, j);
-                posicion = j;
+        void hundir(int posicion){
+            int posicionHijoIzq = hijoIzq(posicion);
+            if (posicionHijoIzq > ultimoOcupado){
+                return;
+            }
+            int posicionMax = posicionHijoIzq;
+            int posicionHijoDer = hijoDer(posicion);
+            if (posicionHijoDer <= ultimoOcupado && comparar(heap[posicionHijoDer], heap[posicionHijoIzq])){
+                posicionMax = posicionHijoDer;
+            }
+            if (comparar(heap[posicionMax], heap[posicion])){
+                swap(posicionMax, posicion);
+                hundir(posicionMax);
             }
         }
 
@@ -38,8 +61,9 @@ class heapBinario{
     
     public:
 
-    heapBinario(int capacidad) : cantOcupados(0), capacidad(capacidad){
-        heap = new T[capacidad + 1];
+    heapBinario(int capacidad, bool (*comparar)(T, T)) : ultimoOcupado(0), capacidad(capacidad){
+        this->heap = new T[capacidad + 1];
+        this->comparar = comparar;
     }
 
     ~heapBinario(){
@@ -47,25 +71,24 @@ class heapBinario{
     }
 
     void insertar(T insertado){
-        if(cantOcupados == capacidad){
+        if(ultimoOcupado == capacidad){
             cout << "El heap esta lleno" << endl;
             return;
         }
-        cantOcupados++;
-        heap[cantOcupados] = insertado;
-        floto(cantOcupados);
+        heap[++ultimoOcupado] = insertado;
+        flotar(ultimoOcupado);
     }
 
-    T eliminarMin(){
+    T eliminarTope(){
         if(estaVacio()){
             cout << "El Heap esta vacio" << endl;
             return T();
         }
-        T min = heap[1];
-        swap(1,cantOcupados);
-        cantOcupados--;
-        hundo(1);
-        return min;
+        T tope = heap[1];
+        swap(1, ultimoOcupado);
+        ultimoOcupado--;
+        hundir(1);
+        return tope;
     }
 
     T peek(){
@@ -77,7 +100,7 @@ class heapBinario{
     }
 
     bool estaVacio(){
-        return cantOcupados == 0;
+        return ultimoOcupado == 0;
     }
 
     int elementos(){
@@ -85,7 +108,7 @@ class heapBinario{
             cout << "El heap no tiene elementos" << endl;
             return T();
         }
-        return cantOcupados;
+        return ultimoOcupado;
     }
 
 };

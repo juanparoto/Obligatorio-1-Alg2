@@ -5,8 +5,13 @@
 
 using namespace std;
 
+bool compararCostos(long a, long b){
+    return a < b;
+}
+
 int main()
 {
+
     long cantArchivos;
     long costoTotal = 0;
     cin >> cantArchivos;
@@ -16,7 +21,7 @@ int main()
         return 0;
     }
 
-    heapBinario<long> heap(cantArchivos);
+    heapBinario<long> heap(cantArchivos, compararCostos);
     
     for(int i = 0; i<cantArchivos; i++){
         long costo;
@@ -25,8 +30,8 @@ int main()
     }
 
     while(heap.elementos() != 1){
-        long a1 = heap.eliminarMin();
-        long a2 = heap.eliminarMin();
+        long a1 = heap.eliminarTope();
+        long a2 = heap.eliminarTope();
         long costoOperacion = a1 + a2;
         heap.insertar(costoOperacion);
         costoTotal += costoOperacion;

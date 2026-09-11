@@ -1,8 +1,6 @@
 #include <cassert>
 #include <string>
 #include <iostream>
-#include <limits>
-#include <cmath>
 #include "tads/HashAbiertoImp.cpp"
 
 #include "clases/clave.cpp"

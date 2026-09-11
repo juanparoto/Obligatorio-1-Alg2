@@ -2,36 +2,35 @@
 
 **Integrantes:** Juan Pablo Burone (Nº 347086), Nicolas Varela (_ _ _ _ 6 7)
 
-
-
 ## 2026-09-01 — Juan Pablo Burone
 - Inicio: Creamos el repo, descargue el proyecto, hice clone git. Arrancamos la
-- implementacion del Avl siguiendo la clase de práctico, no compila.
+implementacion del Avl siguiendo la clase de práctico, no compila.
 
 ## 2026-09-02 — Juan Pablo Burone
 - Hoy terminé la implementación del AVL, ahora compila. Cree las clases moneda y pintura,
-- con los atributoss que considere necesarios, ademas implemente las operaciones **"=="**, **">"** 
-- y **"<"** en cada una.
-- Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
-- buscar en el AVL.
+con los atributoss que considere necesarios, ademas implemente las operaciones **"=="**, **">"** 
+y **"<"** en cada una.
+Avance con ejercicio1.cpp, creando la operacion Buscar, Alta y sus auxiliares. Falta implementar
+buscar en el AVL.
 
 ## 2026-09-03 - Nicolás Varela
--Implemente todo lo de buscar y rango del ejercicio 1.
--Bug: Hay un bug en las funciones de rango pero no es por logica
+- Implemente todo lo de buscar y rango del ejercicio 1.
+Bug: Hay un bug en las funciones de rango pero no es por logica
 
 ## 2026-09-03 - Juan Pablo Burone
 - Borre la funcion rango que tenia bugs, implemente en TAD Avl, que ahora el template
-- recibe dos cosas, el objeto y el tipo de la llave, mostrado como K.
-- Tuvimos tremendo error con git, se sobrescribieron los archivos, casi perdemos todo, usamos LA IA CODEX, COMO AGENTE
-- para que ejecturara los comandos de git y volviera el repo a su estado original.
+recibe dos cosas, el objeto y el tipo de la llave, mostrado como K.
+Tuvimos tremendo error con git, se sobrescribieron los archivos, casi perdemos todo, usamos LA IA CODEX, COMO AGENTE
+para que ejecturara los comandos de git y volviera el repo a su estado original.
 
 ## 2026-09-03 - Nicolás Varela
--Volvi a programar la funcion rango, con los cambios que implemento Juan Pablo
+- Volvi a programar la funcion rango, con los cambios que implemento Juan Pablo
 
 ## 2026-09-03 - Juan Pablo Burone
 - Agrege todo tipo de defensa para casos borde, importe el repo de pruebas, le pedi a la IA que me hiciera un BLOQUE para poder correr
-- las pruebas con un for, adjunto bloque:
+las pruebas con un for, adjunto bloque:
 
+```bash
 for entrada in pruebas-oficiales/tests/ejercicio1/*.in.txt; do
     base="${entrada%.in.txt}"
     ./main < "$entrada" > miSalida.txt
@@ -42,6 +41,8 @@ for entrada in pruebas-oficiales/tests/ejercicio1/*.in.txt; do
         echo "FALLA: $(basename "$base")"
     fi
 done
+|
+```
 
 - Todas las pruebas dieron OK, por hoy damos por terminado el ejercicio1.cpp
 
@@ -65,8 +66,48 @@ Funcion elegida: hash = (R * hash + caracter) % M;
 Como multiplicador elejimos 31. 
 Para elejir el M, como la letra dice que el maximo a registrar son 100.000 palabras, que dividido por 0,6 daria 166.667 buckets, le pedimos a Codex que nos dijiera el proximo primo, para evitar colisiones hasta en el peor caso.
 
+- Quedo pronto todo el ejercicio2, paso todas las pruebas, las corrimos con el siguiente script que nos dio Codex:
 
+```bash
+g++ -std=c++11 ejercicio2.cpp -o /tmp/ejercicio2 && (
+    salida=$(mktemp)
 
+    for entrada in pruebas-oficiales/tests/ejercicio2/*.in.txt; do
+        esperado="${entrada%.in.txt}.out.txt"
+
+        if /tmp/ejercicio2 < "$entrada" > "$salida" &&
+           diff -q "$esperado" "$salida" > /dev/null; then
+            echo "OK: $(basename "$entrada")"
+        else
+            echo "FALLA: $(basename "$entrada")"
+        fi
+    done
+
+    rm "$salida"
+)
+```
+
+## 2026-09-10 - Juan Pablo Burone
+-Hoy literalmente hice TODO el ejercicio 3, desde la implementacion del heap, hasta la logica del main, la verad muy facil
+subanle la dificultad, me llevo 1 hora REVENTANDO. Corri las pruebas con el siguiente comando que me dio Codex:
+
+```bash
+g++ -std=c++11 -O2 ejercicio3.cpp -o ejercicio3 && (
+  set -o pipefail
+  ok=0
+  total=0
+  for entrada in pruebas-oficiales/tests/ejercicio3/*.in.txt; do
+    total=$((total + 1))
+    if timeout 30s ./ejercicio3 < "$entrada" | diff --strip-trailing-cr "${entrada%.in.txt}.out.txt" - > /dev/null; then
+      echo "OK: $(basename "$entrada")"
+      ok=$((ok + 1))
+    else
+      echo "FALLO: $(basename "$entrada")"
+    fi
+  done
+  echo "Resultado: $ok/$total pruebas correctas"
+)
+```
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

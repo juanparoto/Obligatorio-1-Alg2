@@ -116,6 +116,9 @@ g++ -std=c++11 -O2 ejercicio3.cpp -o ejercicio3 && (
 ## 2026-09-11 - Juan Burone
 - Cambie la funcion de hash
 
+## 2026-09-25 - Nicolás Varela
+- Arranque el ejercicio 4 con el main, pero no esta completo, lo terminare cuando hayamos hecho los tads
+
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
 - Pasan los casos de prueba 1 a 4 del ejercicio 1.

@@ -2,7 +2,7 @@
 #include <cassert>
 class GrafoLista{
 
-    private:
+    public:
 
     struct nodoLista{
         int origen;
@@ -16,6 +16,8 @@ class GrafoLista{
             this->sig = unSig;
         }
     };
+
+    private:
 
     bool dirigido;
     bool ponderado;

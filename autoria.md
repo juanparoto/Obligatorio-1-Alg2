@@ -8,14 +8,11 @@
 > con comentarios en el código fuente. La omisión de fuentes puede considerarse plagio.
 
 ## Ejercicio 1
-- La implementación de AVL fue la desarollada en la clase de práctico. En lo demas no hubo utilizacion de inteligencia artifical
-para crear codigo. Solo se utilizo Codex el 3/9/2026 para arreglar un problema con GIT.
+- La implementación de AVL fue la desarollada en la clase de práctico. En lo demas no hubo utilizacion de inteligencia artifical para crear codigo. Solo se utilizo Codex el 3/9/2026 para arreglar un problema con GIT.
 
 ## Ejercicio 2
--   La Implementación del hash Abierto es íntegramente propia, sin embargo, en ejercicio2.cpp, la funcion de hash fue extraida 
-de:
+-   La Implementación del hash Abierto es íntegramente propia, sin embargo, en ejercicio2.cpp, la funcion de hash fue extraida de:
 https://algs4.cs.princeton.edu/34hash/ - Robert Sedgewick y Kevin Wayne. Algorithms, 4.ª edición, sección 3.4: Hash Tables.
-El numero para el modulo de la funcion de hash, fue pedido a Codex, le pedimos el siguiente primo al pero caso de reserva de buckets.
 En lo demas no hubo utilizacion de inteligencia artifical para crear codigo
 
 ## Ejercicio 3
@@ -23,7 +20,7 @@ En lo demas no hubo utilizacion de inteligencia artifical para crear codigo
 En lo demas no hubo utilizacion de inteligencia artifical para crear codigo
 
 ## Ejercicio 4
-- Implementación íntegramente propia, sin fuentes externas.
+- La implementacion del TAD Grafo fue la desarollada en la clase de práctico En lo demas no hubo utilizacion de inteligencia artifical para crear codigo. Solo se utilizo Codex el 27/9/2026 para arreglar un problema con GIT.
 
 ## Ejercicio 5
 - Implementación íntegramente propia, sin fuentes externas.

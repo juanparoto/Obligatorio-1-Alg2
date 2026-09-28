@@ -120,7 +120,33 @@ g++ -std=c++11 -O2 ejercicio3.cpp -o ejercicio3 && (
 - Arranque el ejercicio 4 con el main, pero no esta completo, lo terminare cuando hayamos hecho los tads
 
 ## 2026-09-27 - Nicolás Varela
--Cree la clase nodoH y termine el ejercicio 4
+- Cree la clase nodoH y termine el ejercicio 4
+
+## 2026-09-27 - Juan Pablo Burone
+- Fui a correr las pruebas del ejercicio 4, no paso nignuna, habian 4 bugs, los correji, y ahora pasó todas las pruebas, utilice el siguiente script brindado por codex:
+
+```bash
+g++ -std=c++11 -Wall -Wextra ejercicio4.cpp -o ejercicio4 && (
+    set -o pipefail
+    ok=0
+    total=0
+
+    for entrada in pruebas-oficiales/tests/ejercicio4/*.in.txt; do
+        esperado="${entrada%.in.txt}.out.txt"
+        total=$((total + 1))
+
+        if timeout 5s ./ejercicio4 < "$entrada" |
+           diff --strip-trailing-cr "$esperado" - > /dev/null; then
+            echo "OK: $(basename "$entrada")"
+            ok=$((ok + 1))
+        else
+            echo "FALLÓ: $(basename "$entrada")"
+        fi
+    done
+
+    echo "Resultado: $ok/$total pruebas correctas"
+)
+```
 
 ## AAAA-MM-DD — En conjunto
 - Ejemplo: Implementamos ... Bug: ... Lo corregimos ...

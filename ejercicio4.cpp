@@ -48,7 +48,7 @@ int main()
         nodoH* aux = noListos;
         nodoH* anterior = nullptr;
         while (aux != nullptr){
-            if (entradas[aux->getNum()] == 0){
+            if (entradas[aux->getNum() - 1] == 0){
                 heap.insertar(aux);
                 if (anterior == nullptr){
                     noListos = aux->getSig();
@@ -67,8 +67,8 @@ int main()
         cout << extraido->getNum() << '\n';
         GrafoLista::nodoLista* adyacentes = grafo.adyacentes(extraido->getNum());
         while (adyacentes != nullptr){
-            entradas[adyacentes->origen]--;
-            adyacentes->sig;
+            entradas[adyacentes->origen - 1]--;
+            adyacentes = adyacentes->sig;
         }
     }
 

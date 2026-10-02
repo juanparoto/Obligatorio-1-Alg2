@@ -9,12 +9,14 @@ class GrafoLista{
         int destino;
         int peso;
         nodoLista* sig;
+
         nodoLista(int unOrigen, int unDestino, int unPeso, nodoLista* unSig = NULL){
             this->origen = unOrigen;
             this->destino = unDestino;
             this->peso = unPeso;
             this->sig = unSig;
         }
+        
     };
 
     private:

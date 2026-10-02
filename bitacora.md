@@ -148,6 +148,24 @@ g++ -std=c++11 -Wall -Wextra ejercicio4.cpp -o ejercicio4 && (
 )
 ```
 
-## AAAA-MM-DD — En conjunto
-- Ejemplo: Implementamos ... Bug: ... Lo corregimos ...
-- Pasan los casos de prueba 1 a 4 del ejercicio 1.
+## 2026-10-01 - Juan Pablo Burone
+- Hoy me hice todo el ejercicio 5, implemente el tad MFSet en base a lo que dimos en teorico, despues de eso arranque con el ejercicio, y ni si quiera fue necesario hacer un grafo, simplemente cree una clase arista, hice un array de aristas, los ordené usando un heap sort. Por ultimo implemente Kruskal utilizando el MFSet.
+
+- Corrí las pruebas y pasaron todas, use el siguiente script:
+
+```bash
+g++ -std=c++11 ejercicio5.cpp -o /tmp/ej5
+
+for prueba in pruebas-oficiales/tests/ejercicio5/*.in.txt; do
+    esperado=$(tr -d '\r' < "${prueba%.in.txt}.out.txt")
+    obtenido=$(/tmp/ej5 < "$prueba")
+
+    if [ "$obtenido" = "$esperado" ]; then
+        echo "OK: $prueba"
+    else
+        echo "FALLO: $prueba"
+    fi
+done
+```
+
+## NO HICIMOS NADA EN CONJUNTO, SIEMPRE TRABAJAMOS EN SERIE.

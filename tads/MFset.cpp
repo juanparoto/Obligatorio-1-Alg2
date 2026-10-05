@@ -1,3 +1,5 @@
+
+// Basado en la implementación vista en teórico.
 class MFSet{
     private:
 

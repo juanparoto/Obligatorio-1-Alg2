@@ -4,7 +4,7 @@
 #include <cassert>
 #include "../funciones/enteros.cpp"
 using namespace std;
-
+// Basado en la implementación vista en práctico.
 template <typename T>
 class heapBinario{
     T* heap;

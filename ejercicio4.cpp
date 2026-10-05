@@ -70,7 +70,7 @@ int main()
 
         GrafoLista::nodoLista* adyacente = grafo.adyacentes(numero);
 
-        while (adyacente != nullptr) {
+        while (adyacente != NULL) {
             int destino = adyacente->destino;
 
             entradas[destino]--;

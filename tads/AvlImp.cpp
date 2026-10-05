@@ -4,6 +4,7 @@
 #include "../funciones/enteros.cpp"
 using namespace std;
 
+// Basado en la implementación vista en práctico.
 template<typename T,typename K>
 struct NodoAVL{
     T dato;

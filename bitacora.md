@@ -1,6 +1,6 @@
 # Bitácora — Obligatorio 1
 
-**Integrantes:** Juan Pablo Burone (Nº 347086), Nicolas Varela (_ _ _ _ 6 7)
+**Integrantes:** Juan Pablo Burone (Nº 347086), Nicolas Varela (354567)
 
 ## 2026-09-01 — Juan Pablo Burone
 - Inicio: Creamos el repo, descargue el proyecto, hice clone git. Arrancamos la
@@ -40,7 +40,7 @@ done
 
 - Todas las pruebas dieron OK, por hoy damos por terminado el ejercicio1.cpp
 
-## 2026-06-05 - Nicolás Varela
+## 2026-09-05 - Nicolás Varela
 - Arranqué el ejercicio 2
 - Hice todo el tad del hash abierto
 
@@ -138,6 +138,7 @@ g++ -std=c++11 -Wall -Wextra ejercicio4.cpp -o ejercicio4 && (
 ```
 
 ## 2026-10-01 - Juan Pablo Burone
+
 - Hoy me hice todo el ejercicio 5, implemente el tad MFSet en base a lo que dimos en teorico, después de eso arranqué con el ejercicio, y ní si quiera fue necesario hacer un grafo, simplemente cree una clase arista, hice un array de aristas, los ordené usando un heap sort. Por último implemente Kruskal utilizando el MFSet.
 
 - Corrí las pruebas y pasaron todas, use el siguiente script:

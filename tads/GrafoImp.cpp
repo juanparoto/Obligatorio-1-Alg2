@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+// Basado en la implementación vista en práctico.
 class GrafoLista{
 
     public:
